@@ -1,0 +1,237 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--b2));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--p));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--pf));
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gradient text animation */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Custom button hover effects */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* Loading animation for buttons */
+.btn.loading::after {
+  border-color: transparent transparent currentColor currentColor;
+}
+
+/* Custom focus styles */
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: 2px solid hsl(var(--p));
+  outline-offset: 2px;
+}
+
+/* Backdrop blur support */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--p)) 0%, hsl(var(--s)) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, hsl(var(--s)) 0%, hsl(var(--a)) 100%);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--p)) 0%, hsl(var(--s)) 50%, hsl(var(--a)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--p), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(var(--p), 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Custom transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Hero section specific styles */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    hsl(var(--b1)) 0%, 
+    hsl(var(--b2)) 50%, 
+    hsl(var(--b3)) 100%
+  );
+}
+
+/* Skills section progress bars */
+.progress-bar {
+  transition: width 1s ease-in-out;
+}
+
+/* Project cards */
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact form */
+.form-control input:focus,
+.form-control textarea:focus {
+  border-color: hsl(var(--p));
+  box-shadow: 0 0 0 3px rgba(var(--p), 0.1);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, 
+    hsl(var(--b2)) 0%, 
+    hsl(var(--b3)) 100%
+  );
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] {
+  .card {
+    background: hsl(var(--b2));
+  }
+  
+  .navbar {
+    background: rgba(var(--b1), 0.8);
+  }
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] {
+  .card {
+    background: hsl(var(--b1));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn {
+    display: none !important;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+  }
+}
