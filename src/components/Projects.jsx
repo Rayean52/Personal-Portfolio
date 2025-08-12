@@ -6,24 +6,25 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration. Built with modern technologies for optimal performance.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      title: 'FlatFlow (Apartment Manager)',
+      description: 'FlatFlow is a responsive web application designed to streamline apartment building management. It enables residents to browse available apartments, sign rental agreements, make payments, and stay updated with announcements. Administrators can manage apartment listings, approve agreements, issue coupons, and oversee resident information through a role-based dashboard. The system features secure user authentication, rent-based search, and pagination for apartment listings, ensuring an organized and user-friendly experience.',
+      image: 'https://i.ibb.co.com/G3VnkCxS/Screenshot-28.png',
       liveUrl: 'https://apartment-manager-b64cb.web.app/',
       githubUrl: 'https://github.com/Rayean52',
       technologies: [
         { name: 'React', icon: FaReact, color: 'text-blue-500' },
         { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
         { name: 'MongoDB', icon: SiMongodb, color: 'text-green-600' },
-        { name: 'Express', icon: SiExpress, color: 'text-gray-600' }
+        { name: 'Express', icon: SiExpress, color: 'text-gray-600' },
+        { name: 'Firebase', icon: SiFirebase, color: 'text-orange-400' }
       ],
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface for better productivity.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      title: 'Job Seeker',
+      description: 'Job Seeker is a user-friendly platform designed to help job seekers discover the latest job postings from various companies. Users can easily browse new opportunities and track which companies post jobs regularly. Additionally, the site allows authorized users or employers to add new job listings, keeping the job database fresh and up-to-date. This makes it a comprehensive tool for job hunting and recruitment.',
+      image: 'https://i.ibb.co.com/xtT5SF5Q/Screenshot-29.png',
       liveUrl: 'https://statuesque-empanada-aaa179.netlify.app/',
       githubUrl: 'https://github.com/Rayean52',
       technologies: [
@@ -36,8 +37,8 @@ const Projects = () => {
     {
       id: 3,
       title: 'Roommates Finder',
-      description: 'A platform to help people find compatible roommates with advanced filtering, messaging system, and location-based search functionality.',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      description: 'Roommate Finder is a practical platform that helps individuals find suitable roommates and shared apartments. Users can browse listings, filter based on preferences like location and rent, and connect with potential roommates. The site streamlines the roommate search process by providing verified profiles and easy communication options, making shared living arrangements simpler and more reliable.',
+      image: 'https://i.ibb.co.com/N65w5SSX/Screenshot-30.png',
       liveUrl: 'https://roommates-finder.web.app/',
       githubUrl: 'https://github.com/Rayean52',
       technologies: [
@@ -50,8 +51,8 @@ const Projects = () => {
     {
       id: 4,
       title: 'Food Community',
-      description: 'A social platform for food enthusiasts to share recipes, connect with other food lovers, and discover new culinary experiences from around the world.',
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      description: 'Food Community is a web platform dedicated to connecting food donors with people in need. It supports two user roles — Donors, who can offer surplus food, and Takers, who can request or collect it. In addition to its charitable section, the platform also includes a Paid Food marketplace where food enthusiasts can order meals from local providers. Designed for social good and accessibility, the system ensures a simple, user-friendly experience for both community-driven food sharing and affordable food purchasing.',
+      image: 'https://i.ibb.co.com/Ld2xMdzN/Screenshot-31.png',
       liveUrl: 'https://food-community-52.web.app/',
       githubUrl: 'https://github.com/Rayean52',
       technologies: [
