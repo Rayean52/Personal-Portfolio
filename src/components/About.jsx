@@ -118,8 +118,8 @@ const About = () => {
                     <span className="text-base-content/70">Barisal, Bangladesh</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-medium">Experience</span>
-                    <span className="text-base-content/70">2+ Years</span>
+                    <span className="font-medium">Hunting</span>
+                    <span className="text-base-content/70">Next.js</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Specialization</span>

@@ -61,7 +61,6 @@ const Hero = () => {
               <Typed
                 strings={[
                   'MERN Stack Developer',
-                  'Full Stack Developer',
                   'React.js Developer',
                   'Node.js Developer',
                   'MongoDB Expert'
@@ -122,11 +121,10 @@ const Hero = () => {
                 View My Work
                 <FaArrowDown className="ml-2" />
               </button>
-              <a 
-                href="#contact"
+              <a
                 className="btn btn-outline btn-lg hover:scale-105 transition-all duration-300"
               >
-                Get In Touch
+                Resume
               </a>
             </motion.div>
           </motion.div>
