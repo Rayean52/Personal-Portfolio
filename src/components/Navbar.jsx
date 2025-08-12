@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaBars, FaHome, FaCode, FaUser, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,76 +28,98 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    setIsMenuOpen(false);
+    document.getElementById('my-drawer').checked = false; // close drawer after click
   };
 
   const navItems = [
-    { name: 'Home', id: 'hero' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'About', id: 'about' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'Home', id: 'hero', icon: <FaHome /> },
+    { name: 'Skills', id: 'skills', icon: <FaCode /> },
+    { name: 'About', id: 'about', icon: <FaUser /> },
+    { name: 'Projects', id: 'projects', icon: <FaProjectDiagram /> },
+    { name: 'Contact', id: 'contact', icon: <FaEnvelope /> },
   ];
 
   return (
-    <nav className="navbar bg-base-100/80 backdrop-blur-md fixed top-0 z-50 shadow-lg">
-      <div className="navbar-start">
-        <img className='w-16' src="https://i.ibb.co/dsZdXhC0/letter-r-12499446.png" alt="" />
-        <Link to="/" className="btn btn-ghost text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Abdullah Rayean
-        </Link>
-      </div>
+    <div className="drawer drawer-end">
+      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-2">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className="btn btn-ghost hover:btn-primary transition-all duration-300"
-              >
-                {item.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Navbar */}
+      <div className="drawer-content">
+        <nav className="navbar bg-base-100/80 backdrop-blur-md fixed top-0 z-50 shadow-lg">
+          <div className="navbar-start">
+            <img className="w-16" src="https://i.ibb.co/dsZdXhC0/letter-r-12499446.png" alt="Logo" />
+            <Link
+              to="/"
+              className="btn btn-ghost text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+            >
+              Abdullah Rayean
+            </Link>
+          </div>
 
-      <div className="navbar-end">
-        <button
-          onClick={toggleTheme}
-          className="btn btn-ghost btn-circle mr-2 hover:btn-primary transition-all duration-300"
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? <FaMoon className="w-5 h-5" /> : <FaSun className="w-5 h-5" />}
-        </button>
-
-        <div className="dropdown dropdown-end lg:hidden">
-          <button
-            tabIndex={0}
-            className="btn btn-ghost btn-circle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
-          </button>
-          {isMenuOpen && (
-            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          {/* Desktop Menu */}
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1 space-x-2">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="hover:btn-primary transition-all duration-300"
+                    className="btn btn-ghost hover:btn-primary transition-all duration-300 flex items-center gap-2"
                   >
+                    {item.icon}
                     {item.name}
                   </button>
                 </li>
               ))}
             </ul>
-          )}
+          </div>
+
+          {/* Theme Toggle + Drawer Button */}
+          <div className="navbar-end">
+            <button
+              onClick={toggleTheme}
+              className="btn btn-ghost btn-circle hover:btn-primary transition-all duration-300 mr-2"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <FaMoon className="w-5 h-5" /> : <FaSun className="w-5 h-5" />}
+            </button>
+            <label
+              htmlFor="my-drawer"
+              className="btn btn-ghost lg:hidden"
+              aria-label="Open drawer"
+            >
+              <FaBars className="w-5 h-5" />
+            </label>
+          </div>
+        </nav>
+      </div>
+
+      {/* Drawer Side */}
+      <div className="drawer-side z-[100]">
+        <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+        <div className="bg-base-200 min-h-full w-72 flex flex-col">
+          {/* Drawer Title */}
+          <div className="p-4 border-b border-base-300 flex items-center gap-3">
+            <img className="w-10" src="https://i.ibb.co/dsZdXhC0/letter-r-12499446.png" alt="Logo" />
+            <span className="text-lg font-bold">Navigation</span>
+          </div>
+
+          {/* Drawer Menu */}
+          <ul className="menu text-base-content p-4 space-y-2">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className="hover:btn-primary transition-all duration-300 flex items-center gap-3"
+                >
+                  {item.icon}
+                  {item.name}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
